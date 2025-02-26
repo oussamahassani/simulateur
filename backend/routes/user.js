@@ -141,10 +141,26 @@ router.post('/loginuser', async (req, res, next) => {
     console.log(err)
   }
 })
+router.get('/alluser', async (req, res, next) => {
+  try {
+    User.findAll((err, userbase) => {
+      if (err) {
+        return res.send({ msg: err, data: null })
 
+      }
+      return res.send({ msg: "liste User", data: userbase })
+    }
+    )
+  }
+
+  catch (error) {
+    console.log(error)
+  }
+  //next()
+})
 router.post('/sendemail', async (req, res, next) => {
   try {
-    let donner = req.body.email
+    let donner = req.body
     console.log(donner)
 
     let content = `email: ${donner.email} \n  'nom et prenom' : ${donner.name} + {" "}   + ${donner.prenom} \n donner: ${donner.message} `;

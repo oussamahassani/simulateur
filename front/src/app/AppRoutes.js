@@ -28,12 +28,13 @@ const Error500 = lazy(() => import('./error-pages/Error500'));
 
 const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
-const Lockscreen = lazy(() => import('./user-pages/Lockscreen'));
+const addNewUser = lazy(() => import('./user-pages/addNewUser'));
 
 const BlankPage = lazy(() => import('./general-pages/BlankPage'));
 
 const boilerPage = lazy(() => import('./components/IndexPage'))
 const switchPage = lazy(() => import('./components/SwitchPage'));
+const ListeUser = lazy(() => import('./user-pages/ListeUser'));
 
 
 class AppRoutes extends Component {
@@ -55,6 +56,7 @@ class AppRoutes extends Component {
 
           <Route path="/tables/basic-table" component={BasicTable} />
 
+          <Route path="/tables/liste-user" component={ListeUser} />
 
           <Route path="/icons/mdi" component={Mdi} />
 
@@ -64,7 +66,7 @@ class AppRoutes extends Component {
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register1} />
-          <Route path="/lockscreen" component={Lockscreen} />
+          <Route path="/addNewUser" component={addNewUser} />
 
           <Route path="/error-404" component={Error404} />
           <Route path="/error-500" component={Error500} />
